@@ -1,14 +1,19 @@
 """
-buyer-agent
+buyer-s-agent
+needed "pip install google-serp-api"
 """
+
 import os
 from crewai import Agent, Task, Crew, Process
 from crewai_tools import SerperDevTool
 import openai
+from dotenv import load_dotenv
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
-# os.environ["SERPER_API_KEY"] = "a2470c4bd9f80493bb2c3c2fc5bbd01873e0a429df4d4081ff1ec161fcb0ed1e" # serper.dev API key
-os.environ["SERPER_API_KEY"] = "f82a9006ece734254185cccc35ba0bbacaaca8f1"
+load_dotenv()  # take environment variables from .env.
+print(os.environ["OPENAI_API_KEY"])
+print(os.environ["SERPER_API_KEY"])
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 os.environ['OPENAI_MODEL_NAME'] = 'gpt-3.5-turbo'
 
 
