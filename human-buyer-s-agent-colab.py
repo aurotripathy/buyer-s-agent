@@ -13,6 +13,11 @@ import openai
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
+import chainlit as cl
+from chainlit import run_sync
+from crewai import Agent, Task, Crew
+from crewai_tools import tool
+
 
 load_dotenv()  # take environment variables from .env.
 print(os.environ["OPENAI_API_KEY"])
@@ -36,12 +41,11 @@ search_tool = SerperDevTool()
 buyer = Agent(
   role='First Time Buyer of a Home in the SF Bay Area',
   goal="""Work with a NAR certified Buyer's agent to find a home you love and can afford. 
-  Give the agent the zipcode where you want to buy your home. Use human input for this if its not alreadt provided.""",
+  Give the agent the zipcode where you want to buy your home. Use human input for this if its not already provided.""",
   backstory="""You have a family of wife and two kids and a stable well-paying job.
   You are looking or a home with three bedrooms in a safe meightborhood and good public schools.""",
   verbose=True,
   allow_delegation=False,
-  human_input=True,
   llm=llm
 )
 
@@ -59,7 +63,8 @@ buyers_agent = Agent(
 buyer_task = Task(
   description="""Specify your requirements to the buyer's agent and clearly and consicely as you can.""",
   expected_output="Your home purchase requirements as bullet points.",
-  agent=buyer
+  agent=buyer,
+  human_input=True
 )
 
 look_for_homes_task = Task(
