@@ -41,7 +41,7 @@ search_tool = SerperDevTool()
 buyer = Agent(
   role='First Time Buyer of a Home in the SF Bay Area',
   goal="""Work with a NAR certified Buyer's agent to find a home you love and can afford. 
-  Give the agent the zipcode where you want to buy your home. Use human input for this if its not already provided.""",
+  Make sure to give the buyer's agent the zipcode or city where you want to buy your home.""",
   backstory="""You have a family of wife and two kids and a stable well-paying job.
   You are looking or a home with three bedrooms in a safe meightborhood and good public schools.""",
   verbose=True,
@@ -61,7 +61,8 @@ buyers_agent = Agent(
 
 # Create tasks for your agents
 buyer_task = Task(
-  description="""Specify your requirements to the buyer's agent and clearly and consicely as you can.""",
+  description="""Specify your requirements to the buyer's agent and clearly and consicely as you can.
+  Make sure to check with a human if the requirements are complete before finalizing your answer.""",
   expected_output="Your home purchase requirements as bullet points.",
   agent=buyer,
   human_input=True
