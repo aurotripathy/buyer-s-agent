@@ -1,6 +1,6 @@
 """
-buyer-s-agent
-needed "pip install google-serp-api"
+research-analyst-content-strategist-colab
+needed "pip install google-serp-api" before running the code, unsure why
 """
 
 import os
@@ -16,6 +16,15 @@ print(os.environ["SERPER_API_KEY"])
 openai.api_key = os.getenv("OPENAI_API_KEY")
 os.environ['OPENAI_MODEL_NAME'] = 'gpt-3.5-turbo'
 
+from langchain_openai import ChatOpenAI
+
+# NOTE: local llm use: to find which model names you have, use cli tool:  `ollama list`
+# ensure its being served
+llm = ChatOpenAI(
+      model='llama3',
+      base_url="http://localhost:11434/v1",
+      api_key="NA"
+)
 
 search_tool = SerperDevTool()
 
@@ -28,7 +37,8 @@ researcher = Agent(
   You have a knack for dissecting complex data and presenting actionable insights.""",
   verbose=True,
   allow_delegation=False,
-  tools=[search_tool]
+  tools=[search_tool],
+  llm=llm
 )
 
 writer = Agent(
@@ -37,7 +47,8 @@ writer = Agent(
   backstory="""You are a renowned Content Strategist, known for your insightful and engaging articles.
   You transform complex concepts into compelling narratives.""",
   verbose=True,
-  allow_delegation=False
+  allow_delegation=False,
+  llm =llm
 )
 
 # Create tasks for your agents
