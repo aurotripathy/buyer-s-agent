@@ -1,4 +1,4 @@
-# buyer-s-agent
+# AI buyer-s-agent
 
 Not sure of the project direction yet but the idea is to replace a buyer's agent (an AI Buyer's Agent if you will, since the NAR wiped out this category). 
 
