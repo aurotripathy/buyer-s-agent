@@ -17,7 +17,7 @@ import chainlit as cl
 from chainlit import run_sync
 from crewai import Agent, Task, Crew
 from crewai_tools import tool
-
+from zillow_tool import ZillowTool
 
 load_dotenv()  # take environment variables from .env.
 print(os.environ["OPENAI_API_KEY"])
@@ -36,6 +36,7 @@ llm = ChatOpenAI(
 )
 
 search_tool = SerperDevTool()
+zillow_tool = ZillowTool()
 
 # Define your agents with roles and goals
 buyer = Agent(
@@ -55,7 +56,7 @@ buyers_agent = Agent(
   backstory="""You are aggresive, conscientious. and ethical.""",
   verbose=True,
   allow_delegation=False,
-  tools=[search_tool],
+  tools=[zillow_tool],
   llm=llm
 )
 
