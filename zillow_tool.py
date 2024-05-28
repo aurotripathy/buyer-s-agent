@@ -1,13 +1,12 @@
 from crewai_tools import BaseTool
+import requests
 
 class ZillowTool(BaseTool):
     name: str = "zillowtool"
     description: str = "Given the name of a city it gets the houses for sale."
 
     def _run(self, city: str) -> list:
-    
-        import requests
-
+        
         url = "https://zillow-com1.p.rapidapi.com/propertyExtendedSearch"
 
         # querystring = {"location":"milpitas, ca","status_type":"ForSale","home_type":"Houses","daysOn":"1","soldInLast":"1"}
