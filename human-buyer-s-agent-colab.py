@@ -17,7 +17,7 @@ import chainlit as cl
 from chainlit import run_sync
 from crewai import Agent, Task, Crew
 from crewai_tools import tool
-from zillow_tool import ZillowTool
+from tools.zillow_tool import ZillowTool
 
 load_dotenv()  # take environment variables from .env.
 print(os.environ["OPENAI_API_KEY"])
