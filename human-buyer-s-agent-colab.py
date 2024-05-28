@@ -52,7 +52,8 @@ buyer = Agent(
 
 buyers_agent = Agent(
   role="NAR Certified Buyer's Agent",
-  goal='Look for homes that meet the criteria of your client.',
+  goal="""Look for homes that meet the criteria of the buyer.
+  Pay close attention to the city as prices vary significantly from city to city.""",
   backstory="""You are aggresive, conscientious. and ethical.""",
   verbose=True,
   allow_delegation=False,
@@ -63,7 +64,8 @@ buyers_agent = Agent(
 # Create tasks for your agents
 buyer_task = Task(
   description="""Specify your requirements to the buyer's agent and clearly and consicely as you can.
-  Make sure to check with a human if the requirements are complete before finalizing your answer.""",
+  Make sure to check with a human if the requirements are complete before finalizing your answer.
+  If critical information is missing, explicitly ask for it.""",
   expected_output="Your home purchase requirements as bullet points.",
   agent=buyer,
   human_input=True
