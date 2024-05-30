@@ -4,9 +4,10 @@ An AI agent is an entity that works on your behalf creating tasks for other agen
 
 Not sure of the project direction yet but the idea is to replace a human buyer's agent with an AI Buyer's Agent (if you will), since the NAR wiped out the buyer agent category (that's the genesis of this idea anyway). 
 
-The agent will do the following tasks on behalf of the human:
+The agent will do the following tasks on behalf of the human buyer:
 
-- present homes
+- understand the buyer's requirements
+- present homes 
 - write offers (validated by human)
 - negotiate offers (validated by human)
 - close deals 
