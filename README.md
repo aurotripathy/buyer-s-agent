@@ -10,7 +10,7 @@ The agent will do the following tasks on behalf of the human buyer:
 - present homes 
 - write offers (validated by human)
 - negotiate offers (validated by human)
-- close deals 
+- provide other ancillary services (TBD)
 
 Using local LLM framework, Ollama https://github.com/ollama/ollama/tree/main
 
