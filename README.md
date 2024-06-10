@@ -1,6 +1,16 @@
-# buyer-s-agent
+# AI Buyer's Agent
 
-Not sure of the project direction yet but the idea is to replace a buyer's agent (an AI Buyer's Agent if you will, since the NAR wiped out this category). 
+An AI agent is an entity that works on your behalf creating tasks for other agents interactively, sending/receiving messages, performing actions (querying databases, calling APIs, regerate replies, etc) 
+
+Not sure of the project direction yet but the idea is to replace a human buyer's agent with an AI Buyer's Agent (if you will), since the NAR wiped out the buyer agent category (that's the genesis of this idea anyway). 
+
+The agent will do the following tasks on behalf of the human buyer:
+
+- understand the buyer's requirements
+- present homes 
+- write offers (validated by human)
+- negotiate offers (validated by human)
+- provide other ancillary services (TBD)
 
 Using local LLM framework, Ollama https://github.com/ollama/ollama/tree/main
 
