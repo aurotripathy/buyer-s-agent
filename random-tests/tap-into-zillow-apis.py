@@ -17,6 +17,6 @@ response = requests.get(url, headers=headers, params=querystring)
 json_response = response.json()
 properties = json_response['props']
 for property in properties:
-    print(f"{property['price']}, {property['address']}")
+    print(f"Price: {property['price']}, Address: {property['address']}, Bedrooms: {property['bedrooms']}, Baths: {property['bathrooms']}, Living Area: {property['livingArea']}")
 print(f'full response:\n {response.json()}')
 
