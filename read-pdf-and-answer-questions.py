@@ -61,16 +61,16 @@ def main():
         print(f'Page Number:{page_num}')
         page_text = text_pages[page_num]
         final_prompt = f"""Here is a page from the natural hazards disclosure document: <document>{page_text}</document>.
-0. Here are the outputs you must generate.
-1. Check if the page says anything about wildfires.
-2. If the page does say something about wildfiles, generate a json key value pair wildfire: yes.
-3. If the page does NOT say something about wildfiles, generate a json key value pair wildfire: no. 
-4. Answer the question if 100 words: What does the page say about the possibility of wildfire? Use key about_wildfire followed by your sumary.
+- Check if the page mentions wildfires.
+- If the page mentions wildfires, generate a json key value pair, "wildfire": "yes".
+- Summarize the page as it relates to wildfires? Use key value pair "about_wildfire": "<your summary>".
+- If the page does NOT mention wildfires, stay silent, do NOT output anything.
+
 """
         messages = []     
         messages.append({"role": "user", "content": final_prompt})
         response = chat(messages)
-        print(response)
+        print(response['content'])
     print("\n\n")
 
 print(f'Page count:{number_of_pages}')
