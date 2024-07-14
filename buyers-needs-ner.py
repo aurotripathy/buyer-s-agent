@@ -1,7 +1,7 @@
 """
 Taking guidance from...https://simmering.dev/blog/structured_output/
-Of all the libraries, marvin appears to be the somples and works with OpenAI,
-The outlines library doesn't...yet
+Of all the libraries, marvin appears to be the simplest to work with and works with OpenAI,
+The outlines library doesn't...yet.
 """
 
 from typing import Literal
