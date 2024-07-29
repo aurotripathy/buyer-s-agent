@@ -1,6 +1,28 @@
 import json
 from car_entities import CarEntity
 from pudb import set_trace
+import random
+
+
+def pick_random_element(elements):
+    """
+    Picks a random element from a list.
+    
+    Parameters:
+    elements (list): A list of elements to pick from.
+    
+    Returns:
+    element: A randomly chosen element from the list.
+    """
+    if not elements:
+        raise ValueError("The list is empty. Please provide a list with at least one element.")
+    return random.choice(elements)
+
+# Example usage:
+elements = ['apple', 'banana', 'cherry', 'date']
+random_element = pick_random_element(elements)
+print(f'Randomly selected element: {random_element}')
+
 
 def read_and_process_json(file_path):
     results = []
@@ -31,18 +53,32 @@ if __name__ == "__main__":
 
     items = read_and_process_json(file_path)
     
-    set_trace()
+    # set_trace()
+    # if items is not None:
+    #     count = 0
+    #     for title, description, price in items:
+    #         sale_listing = f"Title: {title}\n  Description: {description}\n  Price: {price}"
+    #         print(sale_listing)
+    #         entities = car_entity.get_car_entities(sale_listing)
+    #         for entity in entities:
+    #             print(f'label: {entity.label}, value: {entity.name}')
+    #         print(f'------------------')
+    #         count = count + 1
+    #         if count == 2:
+    #             break
+
     if items is not None:
-        count = 0
-        for title, description, price in items:
+        count = 5
+        for i in range(count):
+            title, description, price = pick_random_element(items)
             sale_listing = f"Title: {title}\n  Description: {description}\n  Price: {price}"
             print(sale_listing)
             entities = car_entity.get_car_entities(sale_listing)
             for entity in entities:
                 print(f'label: {entity.label}, value: {entity.name}')
             print(f'------------------')
-            count = count + 1
-            if count == 2:
-                break
+
+
 
     print(f'Total number of item: {len(items)}')
+
